@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eranalum — AI Writing</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{min-height:100%;font-family:'Geist',sans-serif;overflow-x:hidden;}
+.page{display:none;}
+.page.active{display:block;}
+
+/* ════ PAGE 1 — ERANALUM WHITE ════ */
+#p1{background:#fff;color:#111;}
+#p1 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(255,255,255,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.07);}
+.p1-logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.p1-logo-m{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;font-style:italic;color:#111;line-height:1;}
+.p1-logo-name{font-size:16px;font-weight:400;color:#111;}
+.p1-logo-name span{color:#5b5bf6;}
+.p1-nav-center{display:flex;gap:2rem;}
+.p1-nav-link{font-size:14px;color:#555;text-decoration:none;cursor:pointer;transition:color 0.15s;}
+.p1-nav-link:hover{color:#111;}
+.p1-nav-right{display:flex;gap:10px;align-items:center;}
+.p1-contact{font-size:14px;color:#555;border:1px solid #ddd;padding:8px 18px;border-radius:8px;cursor:pointer;background:transparent;font-family:'Geist',sans-serif;transition:all 0.15s;}
+.p1-contact:hover{border-color:#aaa;}
+.p1-cta{font-size:14px;font-weight:500;color:#fff;background:#111;border:none;padding:9px 22px;border-radius:10px;cursor:pointer;font-family:'Geist',sans-serif;display:flex;align-items:center;gap:6px;transition:all 0.15s;}
+.p1-cta:hover{background:#333;}
+.p1-hero{min-height:100vh;display:flex;align-items:center;padding:120px 2.5rem 80px;max-width:1100px;margin:0 auto;}
+.p1-h1{font-family:'Instrument Serif',serif;font-size:clamp(3.5rem,7vw,6rem);font-weight:400;line-height:1.05;letter-spacing:-1px;color:#111;margin-bottom:1.5rem;}
+.p1-h1 em{font-style:italic;display:block;}
+.p1-p{font-size:17px;color:#444;line-height:1.7;max-width:560px;margin-bottom:2.5rem;font-weight:300;}
+.p1-p strong{color:#111;font-weight:600;}
+.p1-btns{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.btn-black{font-size:15px;font-weight:500;color:#fff;background:#111;border:none;padding:13px 28px;border-radius:12px;cursor:pointer;font-family:'Geist',sans-serif;display:flex;align-items:center;gap:7px;transition:all 0.18s;}
+.btn-black:hover{background:#333;transform:translateY(-1px);}
+.ghost-link{font-size:14px;color:#777;cursor:pointer;transition:color 0.15s;}
+.ghost-link:hover{color:#111;}
+.divider{width:100%;height:1px;background:#e8e8e8;}
+.p1-how{padding:5rem 2.5rem;max-width:1100px;margin:0 auto;}
+.p1-sec-tag{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:#999;margin-bottom:1.5rem;}
+.p1-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2.5rem;}
+.p1-step-n{font-size:13px;font-weight:600;color:#111;margin-bottom:0.5rem;}
+.p1-step-d{font-size:14px;color:#666;line-height:1.6;font-weight:300;}
+.p1-about{padding:5rem 2.5rem;max-width:1100px;margin:0 auto;}
+.p1-about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.p1-about-h{font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:400;line-height:1.2;color:#111;margin-bottom:1rem;}
+.p1-about-p{font-size:15px;color:#555;line-height:1.75;font-weight:300;}
+.p1-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.p1-stat{background:#f8f8f8;border-radius:12px;padding:1.2rem;}
+.p1-stat.dark{background:#111;}
+.p1-stat-n{font-family:'Instrument Serif',serif;font-size:2rem;font-weight:400;color:#111;}
+.p1-stat.dark .p1-stat-n{color:#fff;}
+.p1-stat-l{font-size:12px;color:#888;margin-top:2px;}
+.p1-cta-sec{padding:5rem 2.5rem;text-align:center;background:#fafafa;}
+.p1-cta-sec h2{font-family:'Instrument Serif',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;font-style:italic;color:#111;margin-bottom:1rem;}
+.p1-cta-sec p{font-size:15px;color:#666;margin-bottom:2rem;font-weight:300;}
+#p1 footer{padding:2rem 2.5rem;border-top:1px solid #e8e8e8;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.p1-foot-logo{font-family:'Instrument Serif',serif;font-size:16px;font-style:italic;color:#666;}
+.p1-foot-links{display:flex;gap:1.5rem;}
+.p1-foot-link{font-size:13px;color:#999;cursor:pointer;transition:color 0.15s;}
+.p1-foot-link:hover{color:#333;}
+.p1-copy{font-size:12px;color:#bbb;}
+
+/* ════ PAGE 2 — ERANATIS SENTIS STYLE ════ */
+#p2{background:#111;color:#eee;}
+
+/* EXACT SENTIS STYLE NAV */
+#p2 nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:56px;
+  display:flex;align-items:center;
+  padding:0 2.5rem;
+  background:transparent;
+  gap:3rem;
+}
+.p2-nav-logo{font-family:'Instrument Serif',serif;font-size:22px;font-weight:400;color:#111;cursor:pointer;letter-spacing:-0.3px;}
+.p2-nav-links{display:flex;gap:2.5rem;}
+.p2-nav-link{font-size:14px;color:#444;cursor:pointer;transition:color 0.15s;}
+.p2-nav-link:hover{color:#111;}
+
+/* HERO — exact Sentis gradient */
+#p2 .hero{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background: linear-gradient(180deg,
+    #c8c4bc 0%,
+    #a8a49c 20%,
+    #888480 40%,
+    #686460 55%,
+    #484440 68%,
+    #2c2420 80%,
+    #1a1008 92%,
+    #0e0804 100%
+  );
+}
+
+/* Da Vinci portrait - right side, large, same as Sentis */
+.davinci{
+  position:absolute;
+  right:-20px;
+  bottom:0;
+  height:88%;
+  width:auto;
+  object-fit:contain;
+  object-position:bottom;
+  pointer-events:none;
+  /* fade left edge */
+  mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.85) 35%, #000 60%);
+  -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.85) 35%, #000 60%);
+  /* fade bottom */
+  -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 12%, rgba(0,0,0,0.9) 35%, #000 55%),
+                     linear-gradient(to top, transparent 0%, rgba(0,0,0,0.5) 8%, #000 20%);
+  mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 12%, rgba(0,0,0,0.9) 35%, #000 55%),
+             linear-gradient(to top, transparent 0%, rgba(0,0,0,0.5) 8%, #000 20%);
+  mask-composite:intersect;
+  -webkit-mask-composite:source-in;
+  filter:grayscale(15%) contrast(1.05) brightness(0.95);
+  animation:dvIn 1s 0.3s ease both;
+  opacity:0;animation-fill-mode:both;
+}
+@keyframes dvIn{from{opacity:0;transform:translateX(25px);}to{opacity:1;transform:translateX(0);}}
+
+/* center text content */
+.p2-center{
+  position:relative;z-index:10;
+  text-align:center;
+  display:flex;flex-direction:column;
+  align-items:center;
+  padding:0 2rem;
+  margin-top:-3rem;
+}
+.p2-title{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(2.5rem,6vw,5rem);
+  font-weight:400;
+  letter-spacing:-0.5px;
+  color:#1a1814;
+  margin-bottom:0.5rem;
+  animation:fadeUp 0.7s ease both;
+}
+.p2-sub{
+  font-size:15px;color:#444;
+  font-weight:300;letter-spacing:0.06em;
+  margin-bottom:3rem;
+  animation:fadeUp 0.7s 0.1s ease both;opacity:0;animation-fill-mode:both;
+}
+
+/* chips */
+.chips{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-bottom:1.8rem;animation:fadeUp 0.7s 0.15s ease both;opacity:0;animation-fill-mode:both;}
+.chip{
+  font-family:'Instrument Serif',serif;
+  font-size:14px;font-style:italic;
+  background:rgba(40,25,18,0.75);
+  color:rgba(255,255,255,0.82);
+  padding:8px 18px;border-radius:8px;
+  cursor:pointer;transition:all 0.2s;
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(4px);
+}
+.chip:hover{background:rgba(60,35,22,0.9);transform:translateY(-2px);}
+
+/* SENTIS STYLE SEARCH BAR */
+.sbar-wrap{
+  width:100%;max-width:560px;
+  animation:fadeUp 0.7s 0.2s ease both;opacity:0;animation-fill-mode:both;
+}
+.sbar{
+  background:rgba(35,15,12,0.82);
+  border-radius:16px;
+  padding:18px 20px 14px;
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+.sbar-ta{
+  width:100%;background:transparent;border:none;outline:none;
+  color:rgba(255,255,255,0.75);
+  font-family:'Geist',sans-serif;
+  font-size:15px;font-weight:300;
+  line-height:1.5;resize:none;
+  min-height:44px;max-height:120px;
+}
+.sbar-ta::placeholder{color:rgba(255,255,255,0.28);}
+.sbar-foot{
+  display:flex;align-items:center;justify-content:flex-end;
+  gap:8px;margin-top:10px;
+}
+.attach-lbl{
+  width:32px;height:32px;
+  color:rgba(255,255,255,0.35);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  border-radius:8px;transition:all 0.18s;
+}
+.attach-lbl:hover{color:rgba(255,255,255,0.65);}
+.attach-lbl svg{width:18px;height:18px;}
+#heroFile{display:none;}
+.send-btn{
+  width:34px;height:34px;
+  background:rgba(255,255,255,0.15);
+  border:none;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all 0.18s;
+  color:rgba(255,255,255,0.8);
+}
+.send-btn:hover{background:rgba(255,255,255,0.25);transform:scale(1.08);}
+.send-btn:disabled{opacity:0.25;cursor:not-allowed;transform:none;}
+.send-btn svg{width:15px;height:15px;}
+.lang-sel{background:rgba(255,255,255,0.07);border:none;border-radius:6px;color:rgba(255,255,255,0.45);font-size:12px;font-family:'Geist',sans-serif;padding:4px 8px;cursor:pointer;outline:none;}
+.lang-sel option{background:#2c1a10;}
+
+/* output */
+.hero-out{max-width:560px;width:100%;margin-top:1rem;display:none;}
+.out-card{background:rgba(255,255,255,0.96);border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.35);animation:fadeUp 0.4s ease;}
+.out-head{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid rgba(0,0,0,0.06);background:#f9f8f5;}
+.out-head-l{display:flex;align-items:center;gap:7px;}
+.out-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;}
+.out-lbl{font-size:12px;font-weight:500;color:#666;}
+.out-btns{display:flex;gap:6px;}
+.obtn{padding:5px 11px;border-radius:6px;border:1px solid rgba(0,0,0,0.12);font-size:12px;color:#666;background:transparent;cursor:pointer;font-family:'Geist',sans-serif;transition:all 0.15s;}
+.obtn:hover{background:rgba(0,0,0,0.04);}
+.obtn.ok{color:#16a34a;border-color:#86efac;}
+.out-body{padding:1.2rem 1.5rem;}
+.out-text{font-size:15px;color:#1c1a17;line-height:1.8;white-space:pre-wrap;}
+.out-foot{display:flex;gap:14px;padding:9px 16px;border-top:1px solid rgba(0,0,0,0.06);background:#f9f8f5;}
+.ostat{font-size:11px;color:#aaa;}
+.ostat b{color:#888;}
+
+/* FOOTER - dark like Neurapex */
+#p2 .p2-footer{
+  background:#120a06;
+  padding:3.5rem 3rem 2rem;
+}
+.p2-foot-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;
+  max-width:1100px;margin:0 auto;
+  padding-bottom:2.5rem;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.p2-foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem;}
+.p2-foot-brand-logo{font-family:'Instrument Serif',serif;font-size:22px;font-style:italic;color:#fff;}
+.p2-foot-brand-name{font-size:15px;color:#aaa;}
+.p2-foot-brand-name span{color:#a599ff;}
+.p2-foot-desc{font-size:14px;color:#4a4440;line-height:1.7;font-weight:300;max-width:360px;margin-bottom:2rem;}
+.p2-foot-email-row{font-size:14px;color:#4a4440;}
+.p2-foot-email-row a{color:#a599ff;text-decoration:none;margin-left:6px;}
+.p2-foot-right{text-align:right;}
+.p2-foot-fb-title{font-family:'Instrument Serif',serif;font-size:1.8rem;font-weight:400;color:#c8c0b4;margin-bottom:1rem;letter-spacing:-0.5px;}
+.p2-foot-fb-desc{font-size:14px;color:#4a4440;line-height:1.7;font-weight:300;margin-bottom:2rem;}
+.p2-connect{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#3a2218;color:#c8c0b4;
+  padding:14px 28px;border-radius:50px;
+  font-size:14px;text-decoration:none;
+  border:1px solid rgba(255,255,255,0.07);
+  transition:all 0.2s;cursor:pointer;
+}
+.p2-connect:hover{background:#4a2e22;transform:translateY(-2px);}
+.p2-foot-bottom{max-width:1100px;margin:0 auto;padding-top:1.5rem;text-align:center;}
+.p2-foot-copy{font-size:12px;color:#2e2420;}
+
+@keyframes dvIn{from{opacity:0;transform:translateX(25px);}to{opacity:1;transform:translateX(0);}}
+@keyframes fcIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:640px){
+  #p1 nav,#p2 nav{padding:0 1rem;}
+  .p1-nav-center,.p2-nav-links{display:none;}
+  .p1-hero{padding:100px 1.2rem 60px;}
+  .p1-about-grid{grid-template-columns:1fr;}
+  .davinci{height:55%;right:-30px;opacity:0.7;}
+  .p2-foot-inner{grid-template-columns:1fr;}
+  .p2-foot-right{text-align:left;}
+  #p2 .p2-footer{padding:2.5rem 1.5rem 2rem;}
+  #e-philosophy > div{grid-template-columns:1fr !important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ PAGE 1 ══ -->
+<div id="p1" class="page active">
+  <nav>
+    <div class="p1-logo" onclick="goHome()">
+      <div class="p1-logo-m">Er</div>
+      <div class="p1-logo-name">erana<span>lum</span></div>
+    </div>
+    <div class="p1-nav-center">
+      <a class="p1-nav-link" onclick="goPage('p5')">About</a>
+      <a class="p1-nav-link" onclick="goPage('p6')">How it Works</a>
+    </div>
+    <div class="p1-nav-right">
+      <button class="p1-contact" onclick="goPage('p5')">Contact</button>
+      <button class="p1-cta" onclick="goEranatis()">
+        Try Eranatis
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <section class="p1-hero">
+    <div style="max-width:680px;animation:fadeUp 0.7s ease both;">
+      <h1 class="p1-h1">Writing,<em>Intelligently.</em></h1>
+      <p class="p1-p">We're building AI that reasons across all writing needs. Instead of juggling multiple tools, ask <strong>one system</strong> to write essays, emails, stories, captions and more — in English, Hindi, or Hinglish.</p>
+      <div class="p1-btns">
+        <button class="btn-black" onclick="goEranatis()">
+          Try Eranatis
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </button>
+        <span class="ghost-link" onclick="goPage('p6')">See how it works</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+  <div class="p1-cta-sec">
+    <h2>Start writing with <em>Eranatis</em></h2>
+    <p>Your AI writing polymath — essays, emails, stories and more.</p>
+    <button class="btn-black" style="margin:0 auto;" onclick="goEranatis()">
+      Try Eranatis
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+    </button>
+  </div>
+
+  <footer>
+    <div class="p1-foot-logo">Eranalum</div>
+    <div class="p1-foot-links">
+      <span class="p1-foot-link" onclick="goPage('p5')">About</span>
+      <span class="p1-foot-link" onclick="goPage('p6')">How it Works</span>
+      <span class="p1-foot-link" onclick="goEranatis()">Eranatis</span>
+    </div>
+    <div class="p1-copy">&copy; 2026 Eranalum</div>
+  </footer>
+</div>
+
+<!-- ══ PAGE 2 — ERANATIS (SENTIS STYLE) ══ -->
+<div id="p2" class="page">
+
+  <!-- Transparent Sentis nav -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:200;height:56px;display:flex;align-items:center;padding:0 2.5rem;background:transparent;border:none;">
+    <span style="font-family:'Instrument Serif',serif;font-size:20px;font-weight:400;color:#111;cursor:pointer;" onclick="goEranatis()">Eranatis</span>
+    <div style="display:flex;gap:2.5rem;margin-left:3rem;">
+      <span style="font-size:14px;color:#444;cursor:pointer;" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#444'" onclick="goPage('p7')">Open Session</span>
+      <span style="font-size:14px;color:#444;cursor:pointer;" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#444'" onclick="goPage('p3')">Capabilities</span>
+      <span style="font-size:14px;color:#444;cursor:pointer;" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#444'" onclick="goPage('p4')">Philosophy</span>
+    </div>
+  </nav>
+
+  <!-- FULL SCREEN HERO -->
+  <div style="position:relative;width:100%;height:100vh;overflow:hidden;background:linear-gradient(180deg,#ccc9c0 0%,#b0aca4 18%,#908c84 35%,#706c64 50%,#504840 65%,#302820 80%,#181008 92%,#0c0804 100%);">
+
+    <!-- Da Vinci -->
+    <img id="davinci" src="" style="position:absolute;right:0;bottom:0;height:90%;width:auto;object-fit:contain;object-position:bottom;pointer-events:none;filter:grayscale(10%) contrast(1.05);mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,0.4) 10%,rgba(0,0,0,0.9) 30%,#000 55%),linear-gradient(to top,transparent 0%,rgba(0,0,0,0.6) 8%,#000 18%);-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,0.4) 10%,rgba(0,0,0,0.9) 30%,#000 55%),linear-gradient(to top,transparent 0%,rgba(0,0,0,0.6) 8%,#000 18%);mask-composite:intersect;-webkit-mask-composite:source-in;animation:dvIn 1s 0.3s ease both;opacity:0;animation-fill-mode:both;" alt=""/>
+
+    <!-- Floating cards -->
+    <div style="position:absolute;top:90px;left:2%;background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);overflow:hidden;width:200px;transform:rotate(-2deg);animation:fcIn 0.8s 0.5s ease both;opacity:0;animation-fill-mode:both;">
+      <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(0,0,0,0.06);"><div style="width:22px;height:22px;border-radius:6px;background:#111;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:600;">Er</div><span style="font-size:12px;font-weight:500;color:#111;">Essay</span></div>
+      <div style="padding:10px 14px;"><div style="display:inline-block;font-size:9px;font-weight:600;padding:2px 8px;border-radius:4px;background:#e8f2fe;color:#2563eb;margin-bottom:7px;text-transform:uppercase;letter-spacing:0.05em;">Essay</div><div style="font-family:'Instrument Serif',serif;font-size:12px;font-style:italic;color:#666;line-height:1.5;">"AI and their capabilities in the modern world..."</div></div>
+    </div>
+
+    <div style="position:absolute;top:80px;right:2%;background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);overflow:hidden;width:210px;transform:rotate(1.8deg);animation:fcIn 0.8s 0.65s ease both;opacity:0;animation-fill-mode:both;">
+      <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(0,0,0,0.06);"><div style="width:22px;height:22px;border-radius:6px;background:#111;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;">✉</div><span style="font-size:12px;font-weight:500;color:#111;">Email</span></div>
+      <div style="padding:10px 14px;"><div style="display:inline-block;font-size:9px;font-weight:600;padding:2px 8px;border-radius:4px;background:#fef9e7;color:#ca8a04;margin-bottom:7px;text-transform:uppercase;letter-spacing:0.05em;">Email</div><div style="font-family:'Instrument Serif',serif;font-size:12px;font-style:italic;color:#666;line-height:1.5;">"Leave request for family function..."</div></div>
+    </div>
+
+    <div style="position:absolute;bottom:110px;left:2%;background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);overflow:hidden;width:205px;transform:rotate(1.2deg);animation:fcIn 0.8s 0.8s ease both;opacity:0;animation-fill-mode:both;">
+      <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(0,0,0,0.06);"><div style="width:22px;height:22px;border-radius:6px;background:#111;display:flex;align-items:center;justify-content:center;font-size:11px;">📖</div><span style="font-size:12px;font-weight:500;color:#111;">Story</span></div>
+      <div style="padding:10px 14px;"><div style="display:inline-block;font-size:9px;font-weight:600;padding:2px 8px;border-radius:4px;background:#f0fdf4;color:#16a34a;margin-bottom:7px;text-transform:uppercase;letter-spacing:0.05em;">Story</div><div style="font-family:'Instrument Serif',serif;font-size:12px;font-style:italic;color:#666;line-height:1.5;">"A village boy who dreamed of the stars..."</div></div>
+    </div>
+
+    <div style="position:absolute;bottom:100px;right:2%;background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);overflow:hidden;width:210px;transform:rotate(-1.5deg);animation:fcIn 0.8s 0.95s ease both;opacity:0;animation-fill-mode:both;">
+      <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(0,0,0,0.06);"><div style="width:22px;height:22px;border-radius:6px;background:#111;display:flex;align-items:center;justify-content:center;font-size:11px;">📸</div><span style="font-size:12px;font-weight:500;color:#111;">Caption</span></div>
+      <div style="padding:10px 14px;"><div style="display:inline-block;font-size:9px;font-weight:600;padding:2px 8px;border-radius:4px;background:#fdf4ff;color:#9333ea;margin-bottom:7px;text-transform:uppercase;letter-spacing:0.05em;">Caption</div><div style="font-family:'Instrument Serif',serif;font-size:12px;font-style:italic;color:#666;line-height:1.5;">"Golden hour never hits different 🌅✨"</div></div>
+    </div>
+
+    <!-- Center content -->
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;padding:0 2rem;">
+      <h1 style="font-family:'Instrument Serif',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:400;color:#1a1814;letter-spacing:-0.5px;margin-bottom:0.5rem;text-align:center;animation:fadeUp 0.7s ease both;">Introducing <em style="font-style:italic;">Eranatis</em></h1>
+      <p style="font-size:15px;color:#5a5650;font-weight:300;letter-spacing:0.06em;margin-bottom:3rem;text-align:center;animation:fadeUp 0.7s 0.1s ease both;opacity:0;animation-fill-mode:both;">a writing polymath</p>
+
+      <!-- Search bar — send = transition animation to Open Session -->
+      <div style="width:100%;max-width:560px;animation:fadeUp 0.7s 0.18s ease both;opacity:0;animation-fill-mode:both;">
+        <div style="background:rgba(22,16,10,0.88);border-radius:18px;padding:20px 22px 16px;box-shadow:0 24px 80px rgba(0,0,0,0.4);backdrop-filter:blur(12px);">
+          <textarea id="heroTA" rows="2" placeholder="What's on your mind, and pen?" style="width:100%;background:transparent;border:none;outline:none;color:rgba(255,255,255,0.82);font-family:'Geist',sans-serif;font-size:16px;font-weight:300;line-height:1.55;resize:none;min-height:44px;max-height:120px;" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();triggerTransition();}"></textarea>
+          <div style="display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:10px;">
+            <label for="heroFile" style="width:32px;height:32px;color:rgba(255,255,255,0.35);cursor:pointer;display:flex;align-items:center;justify-content:center;" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+            </label>
+            <input type="file" id="heroFile" style="display:none" accept=".txt,.pdf">
+            <button id="heroSend" onclick="triggerTransition()" style="width:36px;height:36px;background:rgba(255,255,255,0.15);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,0.85);transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.28)';this.style.transform='scale(1.1)'" onmouseout="this.style.background='rgba(255,255,255,0.15)';this.style.transform='scale(1)'">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSITION OVERLAY -->
+  <div id="transitionOverlay" style="position:fixed;inset:0;z-index:9999;background:#1a1008;opacity:0;pointer-events:none;display:flex;align-items:center;justify-content:center;transition:opacity 0.55s ease;">
+    <div id="transitionText" style="text-align:center;opacity:0;transform:translateY(16px);transition:all 0.4s 0.35s ease;">
+      <div style="font-family:'Instrument Serif',serif;font-size:2rem;font-style:italic;color:rgba(200,185,160,0.8);">Writing...</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="p2-footer">
+    <div class="p2-foot-inner">
+      <div class="p2-foot-left">
+        <div class="p2-foot-brand"><div class="p2-foot-brand-logo">Er</div><div class="p2-foot-brand-name">erana<span>lum</span></div></div>
+        <p class="p2-foot-desc">We're building an AI writing system that reasons across all your writing needs — essays, emails, stories, captions, and more.</p>
+        <div class="p2-foot-email-row"><span style="color:#4a4440;">Email:</span><a href="mailto:asatisam053@gmail.com">asatisam053@gmail.com</a></div>
+      </div>
+      <div class="p2-foot-right">
+        <div class="p2-foot-fb-title">Feedbacks</div>
+        <p class="p2-foot-fb-desc">We're always open for feedback. If you think something's worth improving, kindly feel free to reach out and discuss it.</p>
+        <a class="p2-connect" href="mailto:asatisam053@gmail.com?subject=Feedback for Eranatis&body=Hi, I wanted to share some feedback...">Connect<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:8px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+    <div class="p2-foot-bottom"><div class="p2-foot-copy">&copy; 2026 Eranalum</div></div>
+  </div>
+</div>
+
+<!-- ══ PAGE 3 — CAPABILITIES ══ -->
+<div id="p3" class="page">
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:200;height:56px;display:flex;align-items:center;padding:0 2.5rem;gap:3rem;background:rgba(14,10,6,0.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,0.04);">
+    <span style="font-family:'Instrument Serif',serif;font-size:22px;color:#c8bfb0;cursor:pointer;" onclick="goEranatis()">Eranatis</span>
+    <div style="display:flex;gap:2.5rem;margin-left:auto;">
+      <span style="font-size:14px;color:#c8bfb0;border-bottom:1px solid #8a7a68;padding-bottom:2px;">Capabilities</span>
+      <span style="font-size:14px;color:#5a4a3a;cursor:pointer;" onmouseover="this.style.color='#c8bfb0'" onmouseout="this.style.color='#5a4a3a'" onclick="goPage('p4')">Philosophy</span>
+      <span style="font-size:14px;color:#5a4a3a;cursor:pointer;" onmouseover="this.style.color='#c8bfb0'" onmouseout="this.style.color='#5a4a3a'" onclick="goEranatis()">← Eranatis</span>
+    </div>
+  </nav>
+  <div style="background:#0e0a06;min-height:100vh;padding:120px 3rem 5rem;">
+    <div style="max-width:1000px;margin:0 auto;">
+      <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#4a3a2a;margin-bottom:1rem;">Capabilities</p>
+      <h1 style="font-family:'Instrument Serif',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:400;color:#c8bfb0;margin-bottom:1rem;letter-spacing:-1px;line-height:1.1;animation:fadeUp 0.6s ease both;">Everything Eranatis<br><em style="font-style:italic;color:#8a7a68;">can do for you.</em></h1>
+      <p style="font-size:16px;color:#5a4a3a;font-weight:300;line-height:1.7;max-width:520px;margin-bottom:4rem;animation:fadeUp 0.6s 0.08s ease both;opacity:0;animation-fill-mode:both;">From a single sentence to a full essay — Eranatis reasons across all writing modalities, in the language you speak.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.05);border-radius:20px;overflow:hidden;animation:fadeUp 0.6s 0.14s ease both;opacity:0;animation-fill-mode:both;">
+        <div style="background:#120c06;padding:2rem;" onmouseover="this.style.background='#1a1008'" onmouseout="this.style.background='#120c06'"><div style="font-size:24px;margin-bottom:14px;">📝</div><div style="font-size:15px;font-weight:500;color:#c8bfb0;margin-bottom:8px;">Essay & Assignment</div><div style="font-size:13px;color:#5a4a3a;line-height:1.7;">Structured, well-argued essays on any topic — student or professional grade.</div></div>
+        <div style="background:#120c06;padding:2rem;" onmouseover="this.style.background='#1a1008'" onmouseout="this.style.background='#120c06'"><div style="font-size:24px;margin-bottom:14px;">✉️</div><div style="font-size:15px;font-weight:500;color:#c8bfb0;margin-bottom:8px;">Email & Letter</div><div style="font-size:13px;color:#5a4a3a;line-height:1.7;">Professional emails, leave requests, proposals — written perfectly every time.</div></div>
+        <div style="background:#120c06;padding:2rem;" onmouseover="this.style.background='#1a1008'" onmouseout="this.style.background='#120c06'"><div style="font-size:24px;margin-bottom:14px;">📱</div><div style="font-size:15px;font-weight:500;color:#c8bfb0;margin-bottom:8px;">Social Captions</div><div style="font-size:13px;color:#5a4a3a;line-height:1.7;">Viral Instagram, Twitter, LinkedIn captions that actually get engagement.</div></div>
+        <div style="background:#120c06;padding:2rem;" onmouseover="this.style.background='#1a1008'" onmouseout="this.style.background='#120c06'"><div style="font-size:24px;margin-bottom:14px;">📖</div><div style="font-size:15px;font-weight:500;color:#c8bfb0;margin-bottom:8px;">Story & Creative</div><div style="font-size:13px;color:#5a4a3a;line-height:1.7;">Short stories, poems, creative writing — emotionally resonant and original.</div></div>
+        <div style="background:#120c06;padding:2rem;" onmouseover="this.style.background='#1a1008'" onmouseout="this.style.background='#120c06'"><div style="font-size:24px;margin-bottom:14px;">✨</div><div style="font-size:15px;font-weight:500;color:#c8bfb0;margin-bottom:8px;">Improve & Rewrite</div><div style="font-size:13px;color:#5a4a3a;line-height:1.7;">Paste your draft — Eranatis refines it into something sharper and clearer.</div></div>
+        <div style="background:#120c06;padding:2rem;" onmouseover="this.style.background='#1a1008'" onmouseout="this.style.background='#120c06'"><div style="font-size:24px;margin-bottom:14px;">🌐</div><div style="font-size:15px;font-weight:500;color:#c8bfb0;margin-bottom:8px;">3 Languages</div><div style="font-size:13px;color:#5a4a3a;line-height:1.7;">English, Hindi, Hinglish — write how you think, not how you're told to.</div></div>
+        <div style="background:#120c06;padding:2rem;" onmouseover="this.style.background='#1a1008'" onmouseout="this.style.background='#120c06'"><div style="font-size:24px;margin-bottom:14px;">🔍</div><div style="font-size:15px;font-weight:500;color:#c8bfb0;margin-bottom:8px;">Summarize</div><div style="font-size:13px;color:#5a4a3a;line-height:1.7;">Paste any long article or document — get the key points in seconds.</div></div>
+        <div style="background:#120c06;padding:2rem;" onmouseover="this.style.background='#1a1008'" onmouseout="this.style.background='#120c06'"><div style="font-size:24px;margin-bottom:14px;">🎭</div><div style="font-size:15px;font-weight:500;color:#c8bfb0;margin-bottom:8px;">5 Tone Styles</div><div style="font-size:13px;color:#5a4a3a;line-height:1.7;">Professional, Casual, Funny, Formal, Simple — match the exact vibe you need.</div></div>
+      </div>
+      <div style="text-align:center;margin-top:3rem;">
+        <button onclick="goEranatis()" style="font-family:'Instrument Serif',serif;font-size:16px;font-style:italic;color:#c8bfb0;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:13px 32px;border-radius:50px;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">Try Eranatis →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE 4 — PHILOSOPHY ══ -->
+<div id="p4" class="page">
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:200;height:56px;display:flex;align-items:center;padding:0 2.5rem;gap:3rem;background:rgba(10,8,6,0.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,0.04);">
+    <span style="font-family:'Instrument Serif',serif;font-size:22px;color:#c8bfb0;cursor:pointer;" onclick="goEranatis()">Eranatis</span>
+    <div style="display:flex;gap:2.5rem;margin-left:auto;">
+      <span style="font-size:14px;color:#5a4a3a;cursor:pointer;" onmouseover="this.style.color='#c8bfb0'" onmouseout="this.style.color='#5a4a3a'" onclick="goPage('p3')">Capabilities</span>
+      <span style="font-size:14px;color:#c8bfb0;border-bottom:1px solid #8a7a68;padding-bottom:2px;">Philosophy</span>
+      <span style="font-size:14px;color:#5a4a3a;cursor:pointer;" onmouseover="this.style.color='#c8bfb0'" onmouseout="this.style.color='#5a4a3a'" onclick="goEranatis()">← Eranatis</span>
+    </div>
+  </nav>
+  <div style="background:#0a0806;min-height:100vh;padding:120px 3rem 5rem;">
+    <div style="max-width:1000px;margin:0 auto;">
+      <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#4a3a2a;margin-bottom:1rem;">Philosophy</p>
+      <h1 style="font-family:'Instrument Serif',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:400;color:#c8bfb0;margin-bottom:2rem;letter-spacing:-1px;line-height:1.1;animation:fadeUp 0.6s ease both;">Writing is thinking.<br><em style="font-style:italic;color:#8a7a68;">We make it effortless.</em></h1>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;animation:fadeUp 0.6s 0.1s ease both;opacity:0;animation-fill-mode:both;">
+        <div>
+          <p style="font-size:16px;color:#5a4a3a;font-weight:300;line-height:1.9;margin-bottom:1.5rem;">Great writing has always been the difference between being heard and being ignored. For centuries, only the privileged had access to the best writers and editors.</p>
+          <p style="font-size:16px;color:#5a4a3a;font-weight:300;line-height:1.9;margin-bottom:1.5rem;">Eranatis changes that. We believe everyone — students in Nagpur, creators in Jaipur, professionals in Pune — deserves world-class writing intelligence.</p>
+          <p style="font-size:16px;color:#5a4a3a;font-weight:300;line-height:1.9;">In their own language. On their own terms. Without compromise.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2rem;">
+          <div style="border-left:2px solid rgba(255,255,255,0.08);padding-left:1.8rem;"><div style="font-size:12px;font-weight:500;color:#8a7a68;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em;">One system</div><div style="font-size:15px;color:#5a4a3a;line-height:1.7;">Instead of juggling 5 different tools, ask one AI that reasons across all your writing needs.</div></div>
+          <div style="border-left:2px solid rgba(255,255,255,0.08);padding-left:1.8rem;"><div style="font-size:12px;font-weight:500;color:#8a7a68;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em;">Your language</div><div style="font-size:15px;color:#5a4a3a;line-height:1.7;">Hindi, Hinglish, English — because your best ideas come in the language you think in.</div></div>
+          <div style="border-left:2px solid rgba(255,255,255,0.08);padding-left:1.8rem;"><div style="font-size:12px;font-weight:500;color:#8a7a68;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em;">Built for India</div><div style="font-size:15px;color:#5a4a3a;line-height:1.7;">Not an afterthought — Eranatis is designed from the ground up for Indian students, writers, and creators.</div></div>
+          <div style="border-left:2px solid rgba(255,255,255,0.08);padding-left:1.8rem;"><div style="font-size:12px;font-weight:500;color:#8a7a68;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em;">Intelligence, not templates</div><div style="font-size:15px;color:#5a4a3a;line-height:1.7;">We don't do fill-in-the-blank. Eranatis actually thinks about what you need and writes with genuine intelligence.</div></div>
+        </div>
+      </div>
+      <div style="margin-top:4rem;padding:2.5rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:16px;text-align:center;animation:fadeUp 0.6s 0.18s ease both;opacity:0;animation-fill-mode:both;">
+        <p style="font-family:'Instrument Serif',serif;font-size:1.4rem;font-style:italic;color:#8a7a68;line-height:1.6;margin-bottom:1.5rem;">"The function of good writing is to communicate — not to impress."</p>
+        <button onclick="goEranatis()" style="font-family:'Instrument Serif',serif;font-size:16px;font-style:italic;color:#c8bfb0;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:13px 32px;border-radius:50px;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">Start writing →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE 5 — ABOUT ══ -->
+<div id="p5" class="page">
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:200;height:58px;display:flex;align-items:center;padding:0 2.5rem;background:rgba(255,255,255,0.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,0.07);">
+    <div style="display:flex;align-items:center;gap:10px;cursor:pointer;" onclick="goHome()">
+      <div style="font-family:'Instrument Serif',serif;font-size:24px;font-style:italic;color:#111;">Er</div>
+      <div style="font-size:15px;color:#111;">erana<span style="color:#5b5bf6;">lum</span></div>
+    </div>
+    <div style="display:flex;gap:2rem;margin-left:auto;">
+      <span style="font-size:14px;color:#111;font-weight:500;border-bottom:1px solid #111;padding-bottom:2px;cursor:pointer;">About</span>
+      <span style="font-size:14px;color:#888;cursor:pointer;" onclick="goPage('p6')">How it Works</span>
+      <span style="font-size:14px;color:#888;cursor:pointer;" onclick="goEranatis()">Eranatis ↗</span>
+    </div>
+  </nav>
+
+  <div style="background:#fff;min-height:100vh;padding-top:58px;">
+
+    <!-- ABOUT HEADER -->
+    <div style="max-width:820px;margin:0 auto;padding:5rem 3rem 4rem;border-bottom:1px solid #e8e8e8;">
+      <h1 style="font-family:'Instrument Serif',serif;font-size:clamp(4rem,8vw,7rem);font-weight:400;color:#111;margin-bottom:2.5rem;letter-spacing:-2px;line-height:1;animation:fadeUp 0.6s ease both;">About</h1>
+      <p style="font-size:19px;color:#333;line-height:1.8;font-weight:300;max-width:640px;animation:fadeUp 0.6s 0.08s ease both;opacity:0;animation-fill-mode:both;">We're an AI writing company with a goal of creating a unified, polymathic writing system — one that solves the fragmentation problem in writing AI tools. We're based in Gondia, Maharashtra, India.</p>
+    </div>
+
+    <!-- FRAGMENTATION PROBLEM -->
+    <div style="max-width:820px;margin:0 auto;padding:5rem 3rem;border-bottom:1px solid #e8e8e8;animation:fadeUp 0.6s 0.1s ease both;opacity:0;animation-fill-mode:both;">
+      <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;color:#111;margin-bottom:2rem;letter-spacing:-1px;line-height:1.1;">The Fragmentation Problem</h2>
+      <p style="font-size:17px;color:#444;line-height:1.85;font-weight:300;margin-bottom:1.8rem;max-width:660px;">The bottleneck in AI writing tools isn't capability — it's the fragmented nature of currently available apps, each designed for specific use cases and narrow workflows. This deployment fragmentation leads to a world where you have different tools for essays, emails, captions, stories, and summaries.</p>
+      <p style="font-size:17px;color:#444;line-height:1.85;font-weight:300;max-width:660px;">We realized that breadth-oriented tools can solve the fragmentation problem in ways narrow ones never could. Eranatis — the broadest AI writing tool built to understand all writing needs — is our closest-yet expression of that insight.</p>
+    </div>
+
+    <!-- THINKING FRAMEWORK -->
+    <div style="max-width:820px;margin:0 auto;padding:5rem 3rem;border-bottom:1px solid #e8e8e8;animation:fadeUp 0.6s 0.12s ease both;opacity:0;animation-fill-mode:both;">
+      <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;color:#111;margin-bottom:4rem;letter-spacing:-0.5px;">Eranatis' thinking framework</h2>
+      <div style="display:flex;flex-direction:column;gap:4rem;">
+        <div style="border-top:1px solid #e8e8e8;padding-top:2.5rem;">
+          <h3 style="font-family:'Instrument Serif',serif;font-size:1.5rem;font-weight:400;color:#111;margin-bottom:1rem;">One system, all writing needs</h3>
+          <p style="font-size:16px;color:#666;line-height:1.85;font-weight:300;max-width:620px;">Instead of switching between 5 different apps, Eranatis reasons across all writing modalities — essays, emails, captions, stories, poems, summaries, and more. One system that understands what you need and delivers it.</p>
+        </div>
+        <div style="border-top:1px solid #e8e8e8;padding-top:2.5rem;">
+          <h3 style="font-family:'Instrument Serif',serif;font-size:1.5rem;font-weight:400;color:#111;margin-bottom:1rem;">Language-aware generation</h3>
+          <p style="font-size:16px;color:#666;line-height:1.85;font-weight:300;max-width:620px;">Most AI tools assume English. Eranatis is built natively for India — supporting English, Hindi, and Hinglish. Because your best ideas come in the language you think in, not the one you're forced to write in.</p>
+        </div>
+        <div style="border-top:1px solid #e8e8e8;padding-top:2.5rem;">
+          <h3 style="font-family:'Instrument Serif',serif;font-size:1.5rem;font-weight:400;color:#111;margin-bottom:1rem;">Tone-aware, not template-based</h3>
+          <p style="font-size:16px;color:#666;line-height:1.85;font-weight:300;max-width:620px;">Eranatis doesn't fill in blanks. It actually reasons about what you need — Professional, Casual, Funny, Formal, or Simple — and writes with genuine understanding of context, audience, and purpose.</p>
+        </div>
+        <div style="border-top:1px solid #e8e8e8;padding-top:2.5rem;">
+          <h3 style="font-family:'Instrument Serif',serif;font-size:1.5rem;font-weight:400;color:#111;margin-bottom:1rem;">Intelligence, not automation</h3>
+          <p style="font-size:16px;color:#666;line-height:1.85;font-weight:300;max-width:620px;">We don't believe in copy-paste templates or robotic outputs. Every generation is reasoned from scratch — understanding your topic, your audience, your language, and producing something that actually communicates.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHO'S BEHIND THIS -->
+    <div style="max-width:820px;margin:0 auto;padding:5rem 3rem;border-bottom:1px solid #e8e8e8;animation:fadeUp 0.6s 0.14s ease both;opacity:0;animation-fill-mode:both;">
+      <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;color:#111;margin-bottom:2.5rem;letter-spacing:-0.5px;">Who's behind this</h2>
+      <p style="font-size:17px;color:#333;line-height:1.9;font-weight:300;max-width:640px;"><strong style="font-weight:600;color:#111;">Samarth Asati</strong> — Founder. I'm 14, and I'm from Gondia, Maharashtra. I'm an engineer, thinker, and a writer. I started Eranalum as a series of experiments — exploring how AI could make writing more accessible for every Indian student and creator, regardless of the language they think in. I noticed that every AI writing tool was either too narrow, too English-centric, or too expensive for the average Indian user. Eranatis is my answer to that — a unified, multilingual writing intelligence built for India, by someone who grew up here.</p>
+    </div>
+
+    <!-- BLACK CTA -->
+    <div style="background:#111;padding:8rem 3rem;text-align:center;">
+      <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:400;color:#fff;line-height:1.08;margin-bottom:1.2rem;letter-spacing:-1.5px;">See what unified<br>writing AI looks like.</h2>
+      <p style="font-size:16px;color:#555;margin-bottom:3rem;font-weight:300;letter-spacing:0.02em;">Try Eranatis and experience it.</p>
+      <button onclick="goEranatis()" style="font-family:'Geist',sans-serif;font-size:16px;color:#111;background:#fff;border:none;padding:18px 48px;border-radius:50px;cursor:pointer;font-weight:500;transition:all 0.2s;letter-spacing:0.02em;" onmouseover="this.style.background='#e8e8e8'" onmouseout="this.style.background='#fff'">Try Eranatis →</button>
+    </div>
+
+    <!-- FOOTER -->
+    <div style="background:#111;padding:4rem 3rem 0;">
+      <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:3rem;padding-bottom:3rem;border-bottom:1px solid #1a1a1a;">
+        <div>
+          <div style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#fff;margin-bottom:1.2rem;">Company</div>
+          <p style="font-size:13px;color:#444;line-height:1.75;font-weight:300;">We're building AI for writing, built natively for India.</p>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:500;color:#888;margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:0.06em;">Pages</div>
+          <div style="display:flex;flex-direction:column;gap:0.7rem;">
+            <span style="font-size:14px;color:#444;cursor:pointer;transition:color 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#444'" onclick="goPage('p5')">About</span>
+            <span style="font-size:14px;color:#444;cursor:pointer;transition:color 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#444'" onclick="goPage('p6')">How it Works</span>
+            <a href="mailto:asatisam053@gmail.com" style="font-size:14px;color:#444;text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#444'">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:500;color:#888;margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:0.06em;">Eranatis</div>
+          <span style="font-size:14px;color:#444;cursor:pointer;transition:color 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#444'" onclick="goEranatis()">Eranatis ↗</span>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:500;color:#888;margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:0.06em;">Get in Touch</div>
+          <a href="mailto:asatisam053@gmail.com" style="font-size:14px;color:#444;text-decoration:none;display:block;margin-bottom:0.5rem;transition:color 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#444'">asatisam053@gmail.com</a>
+        </div>
+      </div>
+      <div style="max-width:1100px;margin:0 auto;padding:1.5rem 0;text-align:center;">
+        <div style="font-size:12px;color:#2a2a2a;font-family:'Geist Mono',monospace;letter-spacing:0.08em;">&copy; 2026 Eranalum</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE 6 — HOW IT WORKS ══ -->
+<div id="p6" class="page">
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:200;height:58px;display:flex;align-items:center;padding:0 2.5rem;background:rgba(255,255,255,0.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,0.07);">
+    <div style="display:flex;align-items:center;gap:10px;cursor:pointer;" onclick="goHome()">
+      <div style="font-family:'Instrument Serif',serif;font-size:24px;font-style:italic;color:#111;">Er</div>
+      <div style="font-size:15px;color:#111;">erana<span style="color:#5b5bf6;">lum</span></div>
+    </div>
+    <div style="display:flex;gap:2rem;margin-left:auto;">
+      <span style="font-size:14px;color:#888;cursor:pointer;" onclick="goPage('p5')">About</span>
+      <span style="font-size:14px;color:#111;font-weight:500;border-bottom:1px solid #111;padding-bottom:2px;">How it Works</span>
+      <span style="font-size:14px;color:#888;cursor:pointer;" onclick="goEranatis()">Eranatis ↗</span>
+    </div>
+  </nav>
+
+  <div style="background:#fff;min-height:100vh;padding:110px 3rem 0;max-width:820px;margin:0 auto;">
+
+    <!-- Header -->
+    <div style="padding-bottom:4rem;border-bottom:1px solid #e8e8e8;">
+      <h1 style="font-family:'Instrument Serif',serif;font-size:clamp(3rem,6vw,5rem);font-weight:400;color:#111;margin-bottom:2rem;letter-spacing:-1px;line-height:1.05;animation:fadeUp 0.6s ease both;">How it Works</h1>
+      <p style="font-size:17px;color:#333;line-height:1.75;font-weight:300;max-width:600px;animation:fadeUp 0.6s 0.08s ease both;opacity:0;animation-fill-mode:both;">Eranatis is simple to use — but powerful underneath. Here's exactly how it works.</p>
+    </div>
+
+    <!-- Steps -->
+    <div style="padding:4rem 0;border-bottom:1px solid #e8e8e8;animation:fadeUp 0.6s 0.12s ease both;opacity:0;animation-fill-mode:both;">
+      <div style="display:flex;flex-direction:column;gap:4rem;">
+        <div style="display:grid;grid-template-columns:60px 1fr;gap:1.5rem;align-items:start;">
+          <div style="font-family:'Instrument Serif',serif;font-size:2.5rem;font-weight:400;color:#e0e0e0;line-height:1;">01</div>
+          <div>
+            <h3 style="font-family:'Instrument Serif',serif;font-size:1.4rem;font-weight:400;color:#111;margin-bottom:0.75rem;">Choose your writing mode</h3>
+            <p style="font-size:15px;color:#666;line-height:1.8;font-weight:300;">Select from 8 modes — Essay, Email, Story, Caption, Poem, Improve, Summarize, or Translate. Each mode tells Eranatis what kind of output you need.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:60px 1fr;gap:1.5rem;align-items:start;">
+          <div style="font-family:'Instrument Serif',serif;font-size:2.5rem;font-weight:400;color:#e0e0e0;line-height:1;">02</div>
+          <div>
+            <h3 style="font-family:'Instrument Serif',serif;font-size:1.4rem;font-weight:400;color:#111;margin-bottom:0.75rem;">Pick your language & tone</h3>
+            <p style="font-size:15px;color:#666;line-height:1.8;font-weight:300;">Choose English, Hindi, or Hinglish. Then pick a tone — Professional, Casual, Funny, Formal, or Simple. Eranatis adapts its entire output to match your selection.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:60px 1fr;gap:1.5rem;align-items:start;">
+          <div style="font-family:'Instrument Serif',serif;font-size:2.5rem;font-weight:400;color:#e0e0e0;line-height:1;">03</div>
+          <div>
+            <h3 style="font-family:'Instrument Serif',serif;font-size:1.4rem;font-weight:400;color:#111;margin-bottom:0.75rem;">Type your topic or paste your text</h3>
+            <p style="font-size:15px;color:#666;line-height:1.8;font-weight:300;">Describe what you want — or paste existing text if you want to improve or summarize. You can also attach a .txt or .pdf file for extra context.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:60px 1fr;gap:1.5rem;align-items:start;">
+          <div style="font-family:'Instrument Serif',serif;font-size:2.5rem;font-weight:400;color:#e0e0e0;line-height:1;">04</div>
+          <div>
+            <h3 style="font-family:'Instrument Serif',serif;font-size:1.4rem;font-weight:400;color:#111;margin-bottom:0.75rem;">Generate, copy or download</h3>
+            <p style="font-size:15px;color:#666;line-height:1.8;font-weight:300;">Hit generate — Eranatis writes in seconds. Copy to clipboard or download as a .txt file. Not happy? Hit Regenerate for a fresh take.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick tools -->
+    <div style="padding:4rem 0;border-bottom:1px solid #e8e8e8;animation:fadeUp 0.6s 0.16s ease both;opacity:0;animation-fill-mode:both;">
+      <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:400;color:#111;margin-bottom:1rem;letter-spacing:-0.5px;">Quick Tools</h2>
+      <p style="font-size:15px;color:#666;line-height:1.8;font-weight:300;margin-bottom:2.5rem;max-width:580px;">Beyond the main writing modes, Eranatis has one-click quick tools for common tasks.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:#f0f0f0;border:1px solid #e8e8e8;border-radius:12px;overflow:hidden;">
+        <div style="background:#fff;padding:1.5rem;"><div style="font-family:'Instrument Serif',serif;font-size:1rem;font-weight:400;color:#111;margin-bottom:0.5rem;"># Hashtag Generator</div><div style="font-size:13px;color:#888;line-height:1.6;">Instant trending hashtags for any topic or post.</div></div>
+        <div style="background:#fff;padding:1.5rem;"><div style="font-family:'Instrument Serif',serif;font-size:1rem;font-weight:400;color:#111;margin-bottom:0.5rem;">💡 Title Generator</div><div style="font-size:13px;color:#888;line-height:1.6;">5 catchy, click-worthy titles for your content.</div></div>
+        <div style="background:#fff;padding:1.5rem;"><div style="font-family:'Instrument Serif',serif;font-size:1rem;font-weight:400;color:#111;margin-bottom:0.5rem;">👤 Bio Writer</div><div style="font-size:13px;color:#888;line-height:1.6;">Instagram or LinkedIn bio in seconds.</div></div>
+        <div style="background:#fff;padding:1.5rem;"><div style="font-family:'Instrument Serif',serif;font-size:1rem;font-weight:400;color:#111;margin-bottom:0.5rem;">🎣 Hook Creator</div><div style="font-size:13px;color:#888;line-height:1.6;">Opening lines that grab attention instantly.</div></div>
+      </div>
+    </div>
+
+    <!-- Black CTA -->
+    <div style="background:#111;margin:0 -3rem;padding:6rem 3rem;text-align:center;">
+      <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:400;color:#fff;line-height:1.1;margin-bottom:1rem;letter-spacing:-1px;">See what unified<br>writing AI looks like.</h2>
+      <p style="font-size:15px;color:#666;margin-bottom:2.5rem;font-weight:300;">Try Eranatis and experience it.</p>
+      <button onclick="goEranatis()" style="font-family:'Geist',sans-serif;font-size:15px;color:#111;background:#fff;border:none;padding:16px 40px;border-radius:50px;cursor:pointer;font-weight:500;transition:all 0.2s;" onmouseover="this.style.background='#e8e8e8'" onmouseout="this.style.background='#fff'">Try Eranatis →</button>
+    </div>
+
+    <!-- Footer -->
+    <div style="background:#111;padding:3rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2.5rem;margin:0 -3rem;">
+      <div>
+        <div style="font-family:'Instrument Serif',serif;font-size:1.1rem;color:#fff;margin-bottom:1rem;">Company</div>
+        <p style="font-size:13px;color:#555;line-height:1.7;font-weight:300;">We're building AI for writing, built natively for India.</p>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:1rem;">Pages</div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+          <span style="font-size:13px;color:#555;cursor:pointer;" onclick="goPage('p5')">About</span>
+          <span style="font-size:13px;color:#555;cursor:pointer;" onclick="goPage('p6')">How it Works</span>
+          <span style="font-size:13px;color:#555;cursor:pointer;" onclick="goHome()">Contact</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:1rem;">Eranatis</div>
+        <span style="font-size:13px;color:#555;cursor:pointer;" onclick="goEranatis()">Eranatis ↗</span>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:1rem;">Get in Touch</div>
+        <a href="mailto:asatisam053@gmail.com" style="font-size:13px;color:#555;text-decoration:none;">asatisam053@gmail.com</a>
+      </div>
+    </div>
+    <div style="background:#111;padding:1rem 3rem;margin:0 -3rem;border-top:1px solid #222;text-align:center;">
+      <div style="font-size:12px;color:#333;font-family:'Geist Mono',monospace;letter-spacing:0.05em;">&copy; 2026 Eranalum</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const DAVINCI_SRC = "DAVINCI_PLACEHOLDER";
+document.getElementById('davinci').src = DAVINCI_SRC;
+
+const pages = ['p1','p2','p3','p4','p5','p6'];
+function showPage(id){
+  pages.forEach(p=>document.getElementById(p).classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0});
+}
+function goHome(){showPage('p1');}
+function goEranatis(){showPage('p2');}
+function goPage(id){showPage(id);}
+
+function setChip(t){document.getElementById('heroTA').value=t;}
+function heroFileH(i){}
+
+const LM={
+  english:'Respond only in English.',
+  hindi:'Respond only in Hindi in Devanagari script.',
+  hinglish:'Respond in Hinglish — natural mix of Hindi and English in Roman script.'
+};
+
+async function heroGen(){
+  const inp=document.getElementById('heroTA').value.trim();
+  if(!inp){document.getElementById('heroTA').focus();return;}
+  const lang=document.getElementById('heroLang').value;
+  const btn=document.getElementById('heroSend');btn.disabled=true;
+  const out=document.getElementById('heroOut');out.style.display='block';
+  document.getElementById('heroTxt').innerHTML='<span style="color:#ccc;font-size:13px;">Writing...</span>';
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:`Write a well-structured engaging piece about: "${inp}"\nLength: 200-280 words\n${LM[lang]}\nWrite directly, no preamble.`}]})});
+    const d=await r.json();
+    const txt=d.content?.map(c=>c.text||'').join('')||'Error. Try again.';
+    document.getElementById('heroTxt').textContent=txt;
+    document.getElementById('hW').textContent=txt.trim().split(/\s+/).length;
+    document.getElementById('hC').textContent=txt.length;
+    out.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }catch(e){document.getElementById('heroTxt').textContent='Error. Try again.';}
+  btn.disabled=false;
+}
+function copyOut(id,btnId){
+  navigator.clipboard.writeText(document.getElementById(id).textContent).then(()=>{const b=document.getElementById(btnId);b.textContent='Copied!';b.classList.add('ok');setTimeout(()=>{b.textContent='Copy';b.classList.remove('ok');},2000);});
+}
+function dlOut(id,name){
+  const t=document.getElementById(id).textContent;if(!t)return;
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/plain'}));a.download=name+'.txt';a.click();
+}
+</script>
+</body>
+</html>
